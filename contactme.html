@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mystyles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<title>CV</title>
+	</head>
+	<body data-spy="scroll" data-target=".navbar" data-offset="20">
+		<div id="wrapper">
+			<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">Seamus Meehan</a>
+				</div>
+				<div class="container-fluid">
+					<ul class="navbar-nav nav navbar-right">
+						<li><a href="contactme.html">Contact Me <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+					</ul>
+				</div>
+				<div id="scrollbar">
+				</div>
+			</nav>
+			<div class="container">
+				<div class="row centered-form">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+								<h3 class="panel-heading">Contact Form</h3>
+						</div>
+						<div class="panel-body">
+							<form action="mailto:d16124533@mydit.ie" method="post">
+								<div class="row">
+									<div class="form-group col-xs-6">
+										<input type="text" class="form-control" name="firstname" placeholder="First Name">
+									</div>
+									<div class="form-group col-xs-6">
+										<input type="text" class="form-control"name="lastname" placeholder="Last Name">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<input type="email" class="form-control"name="email" placeholder="Email Address">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<textarea class="form-control" rows="10" name="message" placeholder="Enter your message here..."></textarea>
+									</div>
+								</div>
+								<input type="submit" value="Send Message" class="btn btn-primary">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

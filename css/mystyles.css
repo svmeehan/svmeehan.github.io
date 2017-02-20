@@ -1,0 +1,194 @@
+body{
+	position: relative;
+	padding-top: 115px;
+	background: #222;
+	font-size: 1.3em;
+}
+
+footer {
+	display: block;
+	background: #222;
+	width: 100%;
+	height: auto;
+	color: #fff;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+/*div{border:1px solid red;}*/
+
+	#wrapper {
+		margin: 0px;
+	}
+
+	#aboutmebox{
+		/*border: 1px solid black;*/
+		background-image: url("../media/lights.jpg");
+		background-size: cover;
+	}
+
+	#projectsbox {
+		/*border: 1px solid black;*/
+		background: #223344;
+	}
+
+	#workbox {
+		/*border: 1px solid black;*/
+		background: #ffbb11;
+	}
+
+	#educationbox{
+		/*border: 1px solid black;*/
+		background: #027878;
+	}
+
+	/*.card:hover {
+  		border:2px solid #525C7A;
+	}*/
+
+
+.mainsection a {
+	text-decoration: none;
+	color: black;
+
+}
+
+.mainsection a:link {
+	text-decoration: none;
+	color: black;
+
+}
+
+.mainsection a:hover {
+	text-decoration: none;
+	color: black;
+	
+}
+/*CARD STYLES*/
+.card{
+	background:#fff;
+	border:1px solid #222;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	background-clip: padding-box;
+	padding:0 20px 20px 20px;
+	height: 65vh;
+	box-shadow: 1px 1px 20px #222;
+	padding: 10px;
+}
+
+.card-image {
+	height: 40%;
+}
+
+.card-title{
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.card-subtitle {
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.card-date {
+	/*position: relative;
+	top: 10px;*/
+	padding-top: 11px;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.card-link {
+	font-size: 2em;
+	text-align: right;
+	position: relative;
+	bottom: 50px;
+	width:98%;
+}
+
+.card-part {
+	border-bottom: 1px solid #222;
+}
+
+.card-content {
+	padding-top: 20px;
+}
+
+/*END CARD STYLES*/
+
+#scrollbar {
+	display: block;
+	width: 0%;
+	height: 2px;
+	background:red;
+	top:25px;
+}
+
+.white {
+	color: #fff;
+	text-shadow: 1px 1px 0 #000;
+}
+
+iframe {
+	padding-top: 20px;
+}
+/*#aboutme-hideable {
+		background-image: linear-gradient(#c22326, #f37338);
+	}
+
+	#projects-hideable {
+		background-image: linear-gradient(#f37338, #fdb632);
+	}
+
+	#work-hideable {
+		background-image: linear-gradient(#fdb632, #027878);
+	}
+
+	#education-hideable {
+		background-image: linear-gradient(#027878, #027878);
+	}*/
+
+@media(min-width:767px) {
+
+	body {
+		padding-top: 55px;
+	}
+
+	#aboutme {
+		display:none;
+	}
+
+	#projects {
+		display: none;
+	}
+
+	#work {
+		display: none;
+	}
+
+	#education {
+		display: none;
+	}
+	#aboutme-hideable {
+		display:block;
+	}
+
+	#projects-hideable {
+		display: block;
+	}
+
+	#work-hideable {
+		display: block;
+	}
+
+	#education-hideable {
+		display: block;
+	}
+
+	#aboutmebox, #projectsbox, #workbox, #educationbox {
+		/*border: 1px solid black;*/
+		height: 80vh;
+	}
