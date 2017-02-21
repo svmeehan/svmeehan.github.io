@@ -73,7 +73,7 @@ footer {
 	border-radius: 5px;
 	background-clip: padding-box;
 	padding:0 20px 20px 20px;
-	height: 65vh;
+	height: auto;
 	box-shadow: 1px 1px 20px #222;
 	padding: 10px;
 }
@@ -191,4 +191,8 @@ iframe {
 	#aboutmebox, #projectsbox, #workbox, #educationbox {
 		/*border: 1px solid black;*/
 		height: 80vh;
+	}
+
+	.card {
+		height: 65vh;
 	}
