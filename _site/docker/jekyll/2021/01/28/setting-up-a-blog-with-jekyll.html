@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Setting up Jekyll on Github pages | Seamus Meehan</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Setting up Jekyll on Github pages" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html" />
+<meta property="og:site_name" content="Seamus Meehan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-28T17:00:04+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Setting up Jekyll on Github pages" />
+<script type="application/ld+json">
+{"description":"Introduction","url":"http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html","@type":"BlogPosting","headline":"Setting up Jekyll on Github pages","dateModified":"2021-01-28T17:00:04+00:00","datePublished":"2021-01-28T17:00:04+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Seamus Meehan" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Seamus Meehan</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Setting up Jekyll on Github pages</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-01-28T17:00:04+00:00" itemprop="datePublished">Jan 28, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="introduction">Introduction</h2>
+
+<p><a href="https://jekyllrb.com">Jekyll</a> is a blogging software that produces a static webpage. A static webpage is simply one that serves fixed html files. The webpage will never change unless the html files are edited. A dynamic webpage on the other hand can retrieve information from a database and inject the result into a html page before serving it. Think of your google search results. The page always looks the same but the content between the header and footer is unique. Jekyll gives you the dynamic features you need - I don’t have to add every new post I create to the main page - but every page is then built into a static html file.</p>
+
+<p>You can check out the install instructions for a local installation <a href="https://jekyllrb.com/docs/">here</a>.</p>
+
+<p>I decided to containerize the application as this offers a few advantages but mainly as I like to keep my personal laptop free from packages I don’t use often (apologies to ruby fans!). In this post I will discuss the Dockerfile but if you want to get this up and running feel free to skip the deployment section</p>
+
+<h2 id="building-the-dockerfile">Building the Dockerfile</h2>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> ruby:2-alpine</span>
+
+<span class="k">RUN </span>apk add gcc g++ make <span class="o">&amp;&amp;</span> gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make
+
+<span class="k">EXPOSE</span><span class="s"> 4000</span>
+
+<span class="k">RUN </span>jekyll new my-blog
+
+<span class="k">WORKDIR</span><span class="s"> my-blog</span>
+
+<span class="k">CMD</span><span class="s"> bundle exec jekyll serve --host 0.0.0.0</span>
+</code></pre></div></div>
+
+<p>Let’s briefly discuss the Dockerfile and the choices that were made in order to get it working. The first choice we made was what image to use. Now I didn’t want to make my container from scratch (literally <code class="language-plaintext highlighter-rouge">FROM scratch</code> in Docker) so I took an official ruby image. I used the tag alpine so I could get a smaller version of Linux in order to minimize the final image size.  Originally, I had used <code class="language-plaintext highlighter-rouge">FROM ruby:alpine</code> which included the latest version of ruby (3.0). Unfortunately, there was a compatibility issue with this version of ruby and jekyll. Docker saved me a lot of time here as I could simply use <code class="language-plaintext highlighter-rouge">FROM ruby:2-alpine</code> instead and the image was rebuilt. Installing this locally it would have been a headache to manage ruby versions. I had this issue before when Python 3 was released and ended up with multiple conflicting versions of packages on my machine (I just use <em>venv</em> now).</p>
+
+<p>The following  <code class="language-plaintext highlighter-rouge">RUN</code> line is likely to be the most contentious. I had considered replacing the line:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apk add gcc g++ make <span class="o">&amp;&amp;</span> gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make
+</code></pre></div></div>
+<p>with:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apk add gcc g++ make 
+<span class="k">RUN </span>gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make 
+</code></pre></div></div>
+
+<p>If you are not familiar with Docker or how Dockerfiles are built you may be questioning my sanity at this point. Yes this does run the same commands but there are differences to the image that is produced. The second example may be preferable if you work with ruby a lot. This will cache a version of ruby:2-alpine with gcc, g++ and make installed. If you building a container that uses this in future it can use the cached version. It’s also worth noting that the <code class="language-plaintext highlighter-rouge">apk del gcc g++ make</code> in the second example will not reduce image size which makes sense if you think about docker images as a stack of layers. I decided to go with the first image as it was approximately 200MB smaller and the frequency of image downloads would be higher than the frequency of me installing new ruby gem (I expect both cases will be rare occurrences).</p>
+
+<h2 id="deploying-the-container-locally">Deploying the Container Locally</h2>
+
+<p>If you would like to run this container you can pull it from dockerhub by typing the following into your terminal (you will need Docker installed):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull svmeehan/jekyll
+</code></pre></div></div>
+
+<p>You can then run the container by executing the following command (You can also just run this line and the image should be pulled automatically):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container run <span class="nt">--rm</span> <span class="nt">-d</span> <span class="nt">-p</span> 4000:4000 <span class="nt">--name</span> jekyll svmeehan/jekyll
+</code></pre></div></div>
+<p>You may want to include a volume so you can change files on the fly and we will discuss this in the next section. You can then access your new blog by navigating to http://localhost:4000 in a browser.</p>
+
+<h2 id="getting-this-to-work-with-github-pages">Getting this to work with Github Pages</h2>
+
+<p>In order to push our blog to github we need to take a number of steps. First we need to create a new repository on Github and it should be named <em>yourusername</em>.github.io. This name is required for the page to appear on Github pages. Otherwise it will just be a normal repository.</p>
+
+<p>Next we need some local files to push. In the last section we mentioned volumes in docker and we are going to use one of these. For consistency on the next few commands I will call the local folder my-blog but it makes more sense in practice to call it the same name as your repo as this is the name you will get if you clone it. First thing we do is create the folder for our local blog and then initialize it as a git repository.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>my-blog
+<span class="nb">cd </span>my-blog
+git init
+</code></pre></div></div>
+<p>Next we need to get the files that compose the basic blog from the container by executing the following command in our local blog folder. In the below we are copying from the /my-blog folder inside the container to our local file.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container <span class="nb">cp </span>jekyll:/my-blog/. <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>You should now see _posts and _site directories in your local my-blog directory. We need to link our local file to the git repo which we can do using the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin *yourusername*.github.io
+</code></pre></div></div>
+
+<p>We are now ready to add, commit and push but first let’s open this local blog with the container. This command should be run one level up  just outside the local my-blog folder.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container run <span class="nt">--rm</span> <span class="nt">-d</span> <span class="nt">-p</span> 4000:4000 <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/my-blog:/my-blog <span class="nt">--name</span> jekyll svmeehan/jekyll
+</code></pre></div></div>
+
+<p>Now if we go to our posts folder and begin to edit the basic post included we should see the change reflected @ http://localhost:4000.</p>
+
+<p>Finally we add commit and push our changes which is pretty standard. We need to be in the local my-blog folder again.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span> <span class="c">#add all files</span>
+git commit <span class="nt">-m</span> <span class="s2">"First commit, placeholder blog"</span> <span class="c">#commit with a message</span>
+git push origin master <span class="c">#this will push our files</span>
+</code></pre></div></div>
+
+<p>Github will then build this for you and will even send you an email when it fails. It may take about a minute a push to be reflected in you webpage.</p>
+
+<p>You can now visit your site at: http://<em>yourusername</em>.github.io.</p>
+
+<p>Make some changes to your local files, make sure they good by accessing the site on the container and finally push your changes. Enjoy your new blog!</p>
+
+  </div><a class="u-url" href="/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Seamus Meehan</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Seamus Meehan</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/svmeehan"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">svmeehan</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog to help me remember the technologies I have learned. </p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

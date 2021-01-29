@@ -1,0 +1,32 @@
+I"�
+<p><a href="https://jekyllrb.com">Jekyll</a> is a blogging software that produces a static webpage. A static webpage is simply one that serves fixed html files. The webpage will never change unless the html files are edited. A dynamic webpage on the other hand can retrieve information from a database and inject the result into a html page before serving it. Think of your google search results. The page always looks the same but the content between the header and footer is unique. Jekyll gives you the dynamic features you need - I don’t have to add every new post I create to the main page - but every page is then built into a static html file.</p>
+
+<p>So to get your own jekyll blog you</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> ruby:2-alpine</span>
+
+<span class="k">RUN </span>apk add gcc g++ make <span class="o">&amp;&amp;</span> gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make
+
+<span class="k">EXPOSE</span><span class="s"> 4000</span>
+
+<span class="k">RUN </span>jekyll new my-blog 
+
+<span class="k">WORKDIR</span><span class="s"> my-blog</span>
+
+<span class="k">CMD</span><span class="s"> bundle exec jekyll serve --host 0.0.0.0</span>
+</code></pre></div></div>
+<p>Let’s briefly discuss the Dockerfile and the choices that were made in order to get it working. The first choice we made was what image to use. Now I didn’t want to make my container from scratch (literally <code class="language-plaintext highlighter-rouge">FROM scratch</code> in Docker) so I took an official ruby image. Docker images are usually in the format <em>repo</em>/<em>project</em>:<em>tag</em></p>
+
+<p>So using docker actually ended up saving me time. Originally, I had used:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM ruby:alpine
+</code></pre></div></div>
+
+<p>I had considered replacing the line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUN apk add gcc g++ make &amp;&amp; gem install bundler jekyll &amp;&amp; apk del gcc g++ make
+</code></pre></div></div>
+<p>with:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUN apk add gcc g++ make 
+RUN gem install bundler jekyll &amp;&amp; apk del gcc g++ make 
+</code></pre></div></div>
+<p>If you are not familiar with Docker and how Dockerfiles are built you may be questioning my sanity. “Isn’t this doing exactly the same thing?”. Yes but there are differences in the output. The second example may be preferable</p>
+:ET

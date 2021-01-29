@@ -1,0 +1,43 @@
+I"i<p><a href="https://jekyllrb.com">Jekyll</a> is a blogging software that produces a static webpage. A static webpage is simply one that serves fixed html files. The webpage will never change unless the html files are edited. A dynamic webpage on the other hand can retrieve information from a database and inject the result into a html page before serving it. Think of your google search results. The page always looks the same but the content between the header and footer is unique. Jekyll gives you the dynamic features you need - I don’t have to add every new post I create to the main page - but every page is then built into a static html file.</p>
+
+<p>So to get your own jekyll blog you</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> ruby:2-alpine</span>
+
+<span class="k">RUN </span>apk add gcc g++ make <span class="o">&amp;&amp;</span> gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make
+
+<span class="k">EXPOSE</span><span class="s"> 4000</span>
+
+<span class="k">RUN </span>jekyll new my-blog 
+
+<span class="k">WORKDIR</span><span class="s"> my-blog</span>
+
+<span class="k">CMD</span><span class="s"> bundle exec jekyll serve --host 0.0.0.0</span>
+</code></pre></div></div>
+
+<p>Let’s briefly discuss the Dockerfile and the choices that were made in order to get it working. The first choice we made was what image to use. Now I didn’t want to make my container from scratch (literally <code class="language-plaintext highlighter-rouge">FROM scratch</code> in Docker) so I took an official ruby image. I used the tag alpine so I could get a smaller version of Linux in order to minimize the final image size.  Originally, I had used <code class="language-plaintext highlighter-rouge">FROM ruby:alpine</code> which included the latest version of ruby (3.0). Unfortunately, there was a compatibility issue with this version of ruby and jekyll. Docker saved me a lot of time here as I could simply use <code class="language-plaintext highlighter-rouge">FROM ruby:2-alpine</code> instead and the image was rebuilt. Installing this locally it would have been a headache to manage ruby versions. I had this issue before when Python 3 was released and ended up with multiple conflicting versions of packages on my machine (I just use <em>venv</em> now).</p>
+
+<p>The following  <code class="language-plaintext highlighter-rouge">RUN</code> line is likely to be the most contentious. I had considered replacing the line:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apk add gcc g++ make <span class="o">&amp;&amp;</span> gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make
+</code></pre></div></div>
+<p>with:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RUN </span>apk add gcc g++ make 
+<span class="k">RUN </span>gem <span class="nb">install </span>bundler jekyll <span class="o">&amp;&amp;</span> apk del gcc g++ make 
+</code></pre></div></div>
+
+<p>If you are not familiar with Docker and how Dockerfiles are built you may be questioning my sanity at this point. Yes this does run the same commands but there are differences to the image that is produced. The second example may be preferable if you work with ruby a lot. This is due to how layers work in Docker.</p>
+
+<p>If you would like to run this container you can pull it from dockerhub by typing the following into your terminal (you will need Docker installed):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull svmeehan/jekyll
+</code></pre></div></div>
+
+<p>You can then run the container by running:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container run <span class="nt">--rm</span> <span class="nt">-d</span> <span class="nt">-p</span> 4000:4000 <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/my-blog:/my-blog <span class="nt">--name</span> jekyll svmeehan/jekyll
+</code></pre></div></div>
+
+<p>If you then push everything in the my-blog base directory this to a git repository called <em>yourusername</em>.github.io</p>
+:ET

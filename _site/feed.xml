@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-01-28T13:36:26+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Seamus Meehan</title><subtitle>A blog to help me remember the technologies I have learned. </subtitle><entry><title type="html">Why Blog?</title><link href="http://0.0.0.0:4000/welcome/2021/01/27/welcome.html" rel="alternate" type="text/html" title="Why Blog?" /><published>2021-01-27T19:50:04+00:00</published><updated>2021-01-27T19:50:04+00:00</updated><id>http://0.0.0.0:4000/welcome/2021/01/27/welcome</id><content type="html" xml:base="http://0.0.0.0:4000/welcome/2021/01/27/welcome.html">&lt;p&gt;For this first post I am going to explain the motivation behind the creation of this blog. The TLDR version is: notebooks come and go but a git repo lasts forever (including all spelling mistakes commited in old versions!).&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-01-29T13:31:58+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Seamus Meehan</title><subtitle>A blog to help me remember the technologies I have learned. </subtitle><entry><title type="html">Setting up Jekyll on Github pages</title><link href="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html" rel="alternate" type="text/html" title="Setting up Jekyll on Github pages" /><published>2021-01-28T17:00:04+00:00</published><updated>2021-01-28T17:00:04+00:00</updated><id>http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a blogging software that produces a static webpage. A static webpage is simply one that serves fixed html files. The webpage will never change unless the html files are edited. A dynamic webpage on the other hand can retrieve information from a database and inject the result into a html page before serving it. Think of your google search results. The page always looks the same but the content between the header and footer is unique. Jekyll gives you the dynamic features you need - I don’t have to add every new post I create to the main page - but every page is then built into a static html file.&lt;/p&gt;
+
+&lt;p&gt;You can check out the install instructions for a local installation &lt;a href=&quot;https://jekyllrb.com/docs/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I decided to containerize the application as this offers a few advantages but mainly as I like to keep my personal laptop free from packages I don’t use often (apologies to ruby fans!). In this post I will discuss the Dockerfile but if you want to get this up and running feel free to skip the deployment section&lt;/p&gt;
+
+&lt;h2 id=&quot;building-the-dockerfile&quot;&gt;Building the Dockerfile&lt;/h2&gt;
+
+&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ruby:2-alpine&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add gcc g++ make &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler jekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apk del gcc g++ make
+
+&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 4000&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;jekyll new my-blog
+
+&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; my-blog&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;CMD&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; bundle exec jekyll serve --host 0.0.0.0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s briefly discuss the Dockerfile and the choices that were made in order to get it working. The first choice we made was what image to use. Now I didn’t want to make my container from scratch (literally &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FROM scratch&lt;/code&gt; in Docker) so I took an official ruby image. I used the tag alpine so I could get a smaller version of Linux in order to minimize the final image size.  Originally, I had used &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FROM ruby:alpine&lt;/code&gt; which included the latest version of ruby (3.0). Unfortunately, there was a compatibility issue with this version of ruby and jekyll. Docker saved me a lot of time here as I could simply use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FROM ruby:2-alpine&lt;/code&gt; instead and the image was rebuilt. Installing this locally it would have been a headache to manage ruby versions. I had this issue before when Python 3 was released and ended up with multiple conflicting versions of packages on my machine (I just use &lt;em&gt;venv&lt;/em&gt; now).&lt;/p&gt;
+
+&lt;p&gt;The following  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RUN&lt;/code&gt; line is likely to be the most contentious. I had considered replacing the line:&lt;/p&gt;
+
+&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add gcc g++ make &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler jekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apk del gcc g++ make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;with:&lt;/p&gt;
+
+&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add gcc g++ make 
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler jekyll &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apk del gcc g++ make 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you are not familiar with Docker or how Dockerfiles are built you may be questioning my sanity at this point. Yes this does run the same commands but there are differences to the image that is produced. The second example may be preferable if you work with ruby a lot. This will cache a version of ruby:2-alpine with gcc, g++ and make installed. If you building a container that uses this in future it can use the cached version. It’s also worth noting that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apk del gcc g++ make&lt;/code&gt; in the second example will not reduce image size which makes sense if you think about docker images as a stack of layers. I decided to go with the first image as it was approximately 200MB smaller and the frequency of image downloads would be higher than the frequency of me installing new ruby gem (I expect both cases will be rare occurrences).&lt;/p&gt;
+
+&lt;h2 id=&quot;deploying-the-container-locally&quot;&gt;Deploying the Container Locally&lt;/h2&gt;
+
+&lt;p&gt;If you would like to run this container you can pull it from dockerhub by typing the following into your terminal (you will need Docker installed):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker pull svmeehan/jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can then run the container by executing the following command (You can also just run this line and the image should be pulled automatically):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker container run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 4000:4000 &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; jekyll svmeehan/jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You may want to include a volume so you can change files on the fly and we will discuss this in the next section. You can then access your new blog by navigating to http://localhost:4000 in a browser.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-this-to-work-with-github-pages&quot;&gt;Getting this to work with Github Pages&lt;/h2&gt;
+
+&lt;p&gt;In order to push our blog to github we need to take a number of steps. First we need to create a new repository on Github and it should be named &lt;em&gt;yourusername&lt;/em&gt;.github.io. This name is required for the page to appear on Github pages. Otherwise it will just be a normal repository.&lt;/p&gt;
+
+&lt;p&gt;Next we need some local files to push. In the last section we mentioned volumes in docker and we are going to use one of these. For consistency on the next few commands I will call the local folder my-blog but it makes more sense in practice to call it the same name as your repo as this is the name you will get if you clone it. First thing we do is create the folder for our local blog and then initialize it as a git repository.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;my-blog
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;my-blog
+git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Next we need to get the files that compose the basic blog from the container by executing the following command in our local blog folder. In the below we are copying from the /my-blog folder inside the container to our local file.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker container &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;jekyll:/my-blog/. &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should now see _posts and _site directories in your local my-blog directory. We need to link our local file to the git repo which we can do using the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote add origin *yourusername*.github.io
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We are now ready to add, commit and push but first let’s open this local blog with the container. This command should be run one level up  just outside the local my-blog folder.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker container run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 4000:4000 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/my-blog:/my-blog &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; jekyll svmeehan/jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now if we go to our posts folder and begin to edit the basic post included we should see the change reflected @ http://localhost:4000.&lt;/p&gt;
+
+&lt;p&gt;Finally we add commit and push our changes which is pretty standard. We need to be in the local my-blog folder again.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#add all files&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;First commit, placeholder blog&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#commit with a message&lt;/span&gt;
+git push origin master &lt;span class=&quot;c&quot;&gt;#this will push our files&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Github will then build this for you and will even send you an email when it fails. It may take about a minute a push to be reflected in you webpage.&lt;/p&gt;
+
+&lt;p&gt;You can now visit your site at: http://&lt;em&gt;yourusername&lt;/em&gt;.github.io.&lt;/p&gt;
+
+&lt;p&gt;Make some changes to your local files, make sure they good by accessing the site on the container and finally push your changes. Enjoy your new blog!&lt;/p&gt;</content><author><name></name></author><category term="docker" /><category term="jekyll" /><summary type="html">Introduction</summary></entry><entry><title type="html">Why Blog?</title><link href="http://0.0.0.0:4000/welcome/2021/01/27/welcome.html" rel="alternate" type="text/html" title="Why Blog?" /><published>2021-01-27T19:50:04+00:00</published><updated>2021-01-27T19:50:04+00:00</updated><id>http://0.0.0.0:4000/welcome/2021/01/27/welcome</id><content type="html" xml:base="http://0.0.0.0:4000/welcome/2021/01/27/welcome.html">&lt;p&gt;For this first post I am going to explain the motivation behind the creation of this blog. The TLDR version is: notebooks come and go but a git repo lasts forever (including all spelling mistakes commited in old versions!).&lt;/p&gt;
 
 &lt;p&gt;I’ve played around a lot with AWS recently and built a few hosted webpages there. One was a &lt;a href=&quot;https://ghost.org&quot;&gt;Ghost&lt;/a&gt; (node.js) blog using an EC2 instance as a web server with a RDS (MySQL) server as a backend. I also experimented with serving a static website from S3 using the API Gateway. In the end with my AWS free trial coming to an end soon I wanted to move to a lower cost solution (and by this I mean free). I actualy have some AWS credits for attending the AWS Online Summit last Summer but I’d rather save these for future projects.&lt;/p&gt;
 
