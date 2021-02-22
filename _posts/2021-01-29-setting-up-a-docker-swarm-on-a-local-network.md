@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Setting up a Docker Swarm on your Local Network"
-date:   2021-01-29 12:00:04 +0000
+date:   2021-02-29 12:00:04 +0000
 categories: docker swarm firewalld
 ---
 

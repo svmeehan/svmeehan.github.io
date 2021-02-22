@@ -1,0 +1,14 @@
+I"<p>If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!</p>
+
+<p>If you have package manager is it’s simply a tool that is used to install and remove software with the added bonus of managing dependencies. The two most popular package managers are <code class="language-plaintext highlighter-rouge">apt</code> usually found on debian based distributions and <code class="language-plaintext highlighter-rouge">yum</code> (Fedora 33 tells me this is now replaced with <code class="language-plaintext highlighter-rouge">dnf</code> so add another package manager onto the list).</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>vlc
+yum update
+</code></pre></div></div>
+
+<p>Now you might be wondering, if it’s that simple why would I ever want a universal package manager? The</p>
+
+<p>Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu ()</p>
+
+<p>A brief explanation of how packages are currently maintained may be of interest. Depending on the flavor of your distribution, you may be used to seeing packages with a .deb (Debian, Ubuntu etc;) or .rpm (RHEL, CentOS, Fedora, etc;)</p>
+:ET
