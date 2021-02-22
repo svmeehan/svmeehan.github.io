@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Snap - A Universal Package Manager for Linux"
-date:   2021-02-08 12:00:04 +0000
+date:   2021-02-17 12:00:04 +0000
 categories: snap linux yaml canonical
 ---
 
@@ -14,8 +14,22 @@ yum install vlc
 yum update
 ```
 
-Now you might be wondering, if it's that simple why would I ever want a universal package manager? The 
+Now you might be wondering, if it's that simple why would I ever want a universal package manager? Well there are a few reason. Packages can be out of date or even non existent. For example, don't use the version of Docker in your distro's default repository. 
 
-Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu ()
+Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu that it is hard to manage unique pacakges for each distro.
 
-A brief explanation of how packages are currently maintained may be of interest. Depending on the flavor of your distribution, you may be used to seeing packages with a .deb (Debian, Ubuntu etc;) or .rpm (RHEL, CentOS, Fedora, etc;)
+To install things using snap it pretty simple. first install snap
+
+``` sh
+yum install snap
+```
+
+Then we can simply install 
+
+```
+snap install vlc
+```
+
+I had some issues with snap. I imagine this is related to using a canonical tool on a non canonical distro. When I ran things with a `snap run vlc` I got a strange font error. However, when I ran the same command using the debugger `snap run --gdb vlc` it would run after continuing a few times. Weirdly, if I uninstalled it and reinstalled the font issue would reappear until I ran it once with the debugger.
+
+So while I'm not ready to use it for my container images it's worth keeping an eye on. Like most things on Linux there is more than one option. A popular alternative is flatpak. I haven't tested this but it may be worth having a look

@@ -9,15 +9,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!" />
 <meta property="og:description" content="If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!" />
-<link rel="canonical" href="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html" />
-<meta property="og:url" content="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html" />
+<link rel="canonical" href="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html" />
 <meta property="og:site_name" content="Seamus Meehan" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-02-08T12:00:04+00:00" />
+<meta property="article:published_time" content="2021-02-17T12:00:04+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Snap - A Universal Package Manager for Linux" />
 <script type="application/ld+json">
-{"description":"If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!","url":"http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html","@type":"BlogPosting","headline":"Snap - A Universal Package Manager for Linux","dateModified":"2021-02-08T12:00:04+00:00","datePublished":"2021-02-08T12:00:04+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html"},"@context":"https://schema.org"}</script>
+{"description":"If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!","url":"http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html","@type":"BlogPosting","headline":"Snap - A Universal Package Manager for Linux","dateModified":"2021-02-17T12:00:04+00:00","datePublished":"2021-02-17T12:00:04+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Seamus Meehan" /></head>
 <body><header class="site-header" role="banner">
@@ -42,7 +42,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Snap - A Universal Package Manager for Linux</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2021-02-08T12:00:04+00:00" itemprop="datePublished">Feb 8, 2021
+      <time class="dt-published" datetime="2021-02-17T12:00:04+00:00" itemprop="datePublished">Feb 17, 2021
       </time></p>
   </header>
 
@@ -55,13 +55,25 @@
 yum update
 </code></pre></div></div>
 
-<p>Now you might be wondering, if it’s that simple why would I ever want a universal package manager? The</p>
+<p>Now you might be wondering, if it’s that simple why would I ever want a universal package manager? Well there are a few reason. Packages can be out of date or even non existent. For example, don’t use the version of Docker in your distro’s default repository.</p>
 
-<p>Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu ()</p>
+<p>Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu that it is hard to manage unique pacakges for each distro.</p>
 
-<p>A brief explanation of how packages are currently maintained may be of interest. Depending on the flavor of your distribution, you may be used to seeing packages with a .deb (Debian, Ubuntu etc;) or .rpm (RHEL, CentOS, Fedora, etc;)</p>
+<p>To install things using snap it pretty simple. first install snap</p>
 
-  </div><a class="u-url" href="/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html" hidden></a>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>snap
+</code></pre></div></div>
+
+<p>Then we can simply install</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>snap install vlc
+</code></pre></div></div>
+
+<p>I had some issues with snap. I imagine this is related to using a canonical tool on a non canonical distro. When I ran things with a <code class="language-plaintext highlighter-rouge">snap run vlc</code> I got a strange font error. However, when I ran the same command using the debugger <code class="language-plaintext highlighter-rouge">snap run --gdb vlc</code> it would run after continuing a few times. Weirdly, if I uninstalled it and reinstalled the font issue would reappear until I ran it once with the debugger.</p>
+
+<p>So while I’m not ready to use it for my container images it’s worth keeping an eye on. Like most things on Linux there is more than one option. A popular alternative is flatpak. I haven’t tested this but it may be worth having a look</p>
+
+  </div><a class="u-url" href="/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html" hidden></a>
 </article>
 
       </div>

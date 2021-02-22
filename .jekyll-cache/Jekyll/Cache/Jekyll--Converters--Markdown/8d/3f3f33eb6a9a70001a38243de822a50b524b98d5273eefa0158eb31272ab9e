@@ -1,0 +1,83 @@
+I"2<h2 id="setting-up-some-new-virtual-machines">Setting up Some New Virtual Machines</h2>
+
+<p>For my swarm I created a master node on my personal laptop along with two worker nodes running on two VMs hosted on my Desktop PC.</p>
+
+<p>For this I used a minimal CentOS 7 image. I had this on on my PC so I used it.</p>
+
+<p>My laptop is running Fedora Workstation 33.</p>
+
+<p>If you don’t use CentOS you will likely not have the issues I had. On Fedora Workstation the required ports are opened by default.</p>
+
+<p>When setting up your machines in Virtualbox you are going to want to set up a bridged connection. This will assign each of you VMs an IP as if they were connected to your local network. I had assigned my Desktop PC a preferred IP based on it’s MAC address and this will cause all VMs to be assigned the same IP. If you end up with an IP</p>
+
+<h2 id="add-docker-to-this-machine">Add docker to this machine</h2>
+
+<p>Installing Docker is actually very simple these days. Usually, you won’t want to use your package manager’s repo. To ensure you get the latest version check out the script at <a href="http://get.docker.com">get.docker.com</a>.</p>
+
+<p>Run it in your terminal with:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="si">$(</span>curl <span class="nt">-s</span> get.docker.com<span class="si">)</span>
+</code></pre></div></div>
+<p>or as recommended in the script</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> https://get.docker.com <span class="nt">-o</span> get-docker.sh
+sh get-docker.sh
+</code></pre></div></div>
+
+<h2 id="adding-machines-to-the-swarm">Adding machines to the Swarm</h2>
+
+<p>Execute the following command on your leader machine <em>node1</em> to start the swarm.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker swarm init
+</code></pre></div></div>
+
+<p>This will add this machine to the node. It will also print a worker join token to the screen. This command must then be run on the other machines on the network in order for them to join the swarm. I didn’t want to manually type this so I created a docker image to host this info.</p>
+
+<p>I found the most efficient way to get nodes to join was to host the join key on a webserver on the first node. To do this we run a few linux commands on the initialized node:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker swarm join-token worker | <span class="nb">sed </span>1d <span class="o">&gt;</span> index.html <span class="c">#use manager in place of worker if desired</span>
+</code></pre></div></div>
+
+<p>The sed in the above command just removes the first line from the output. You can then execute the following command to host the script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run --rm -d --name token-share -p 80:80 -v $(pwd)/index.html:/usr/share/nginx/html/index.html nginx
+</code></pre></div></div>
+
+<p>On the other nodes you can now execute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$(curl -s *ip-address-of-docker-node*)
+</code></pre></div></div>
+<p>This method of key sharing probably doesn’t meet any organizational security standards but I’m fine with it on my local network.</p>
+
+<h1 id="cleaning-up-with-docker">cleaning up with Docker</h1>
+
+<p>Once we have all our nodes added we want to clean up the nginx container. All we need to do is stop it and it will be deleted as we started it with an <code class="language-plaintext highlighter-rouge">--rm</code> argument. Just run:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container stop token-share
+</code></pre></div></div>
+
+<p>We then probably want to refresh the join key we run:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker swarm join-token <span class="nt">--rotate</span> worker
+docker swarm join-token <span class="nt">--rotate</span> manager
+</code></pre></div></div>
+
+<p>This ensures that your key going forward is different than the one you just publicly shared. Finally confirm the correct number of nodes are in your cluster:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker node <span class="nb">ls</span>
+</code></pre></div></div>
+
+<h2 id="configuring-your-firewall-for-a-swarm-node">Configuring your Firewall for a Swarm Node</h2>
+
+<p>If your virtual machines use an image with systemd (it probably does) you can run the following commands to make the required changes to firewalld.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>firewall-cmd <span class="nt">--list-all</span> <span class="c">#you can see your active zone here</span>
+firewall-cmd <span class="nt">--zone</span><span class="o">=</span>public <span class="nt">--permanent</span> <span class="nt">--add-port</span><span class="o">=</span>1025-655365/tcp <span class="nt">-add-port</span><span class="o">=</span>1025-655365/udp
+firewall-cmd <span class="nt">--reload</span> <span class="c">#for changes to take effect</span>
+</code></pre></div></div>
+
+<p>Opening all the above ports is overkill and kind of eliminates the purpose of using a secure distribution like CentOS. You can find out the exact ports to open in Docker’s own <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/#open-protocols-and-ports-between-the-hosts">tutorial</a>.</p>
+
+<p>Not having the correct ports open can lead to some unusual behavior. I was able to have my CentOS join the swarm but they couldn’t start containers.</p>
+
+<p>Enjoy your Swarm!</p>
+:ET

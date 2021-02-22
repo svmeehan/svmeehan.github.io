@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-02-22T14:57:02+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Seamus Meehan</title><subtitle>A blog to help me remember the technologies I have learned. </subtitle><entry><title type="html">AWS Solutions Architect Posts</title><link href="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html" rel="alternate" type="text/html" title="AWS Solutions Architect Posts" /><published>2021-02-22T12:00:04+00:00</published><updated>2021-02-22T12:00:04+00:00</updated><id>http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts</id><content type="html" xml:base="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html">&lt;h2 id=&quot;exam-selection&quot;&gt;Exam Selection&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-02-22T16:38:38+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Seamus Meehan</title><subtitle>A blog to help me remember the technologies I have learned. </subtitle><entry><title type="html">AWS Solutions Architect Posts</title><link href="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html" rel="alternate" type="text/html" title="AWS Solutions Architect Posts" /><published>2021-02-22T12:00:04+00:00</published><updated>2021-02-22T12:00:04+00:00</updated><id>http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts</id><content type="html" xml:base="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html">&lt;h2 id=&quot;exam-selection&quot;&gt;Exam Selection&lt;/h2&gt;
 
 &lt;p&gt;Last Summer, I began using the AWS ecosystem to host some personal projects. I fully intend to do a post about one of the Lambda projects I worked on last year but I want to rebuild it using the new lambda containers so I can do a comparison.&lt;/p&gt;
 
@@ -14,7 +14,7 @@
 
 &lt;p&gt;There are then two professional level certs and six specialty certificates. I decided to skip the cloud practitioner exam and go for something more technical. While I was initially drawn to the administrator course based on my interests I opted instead for the Solution Architect exam. This course seemed to be the most fundamental with a focus on designing robust deployments and understanding of the most cost efficient solutions.&lt;/p&gt;
 
-&lt;p&gt;I will be adding posts to the blog with a single post per technology (S3, EC2, etc). These notes may go beyond the scope of the exam, mainly some AWS CLI stuff I want to have at a convenient location for copy pasting. I will be updating this post with the links as i write them.&lt;/p&gt;
+&lt;p&gt;I will be adding posts to the blog with a single post per technology (S3, EC2, etc). These notes may go beyond the scope of the exam, mainly some AWS CLI stuff I want to have at a convenient location for copy pasting. I will be updating this post with the links as I write them.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-links&quot;&gt;The Links&lt;/h2&gt;
 
@@ -22,7 +22,7 @@
   &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;placeholder S3&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;placeholder EC2&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;placeholder RDS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="notes" /><category term="fluff" /><category term="solutions-architect" /><summary type="html">Exam Selection</summary></entry><entry><title type="html">Snap - A Universal Package Manager for Linux</title><link href="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html" rel="alternate" type="text/html" title="Snap - A Universal Package Manager for Linux" /><published>2021-02-08T12:00:04+00:00</published><updated>2021-02-08T12:00:04+00:00</updated><id>http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager</id><content type="html" xml:base="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/08/snap-package-manager.html">&lt;p&gt;If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="notes" /><category term="fluff" /><category term="solutions-architect" /><summary type="html">Exam Selection</summary></entry><entry><title type="html">Snap - A Universal Package Manager for Linux</title><link href="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html" rel="alternate" type="text/html" title="Snap - A Universal Package Manager for Linux" /><published>2021-02-17T12:00:04+00:00</published><updated>2021-02-17T12:00:04+00:00</updated><id>http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager</id><content type="html" xml:base="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html">&lt;p&gt;If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!&lt;/p&gt;
 
 &lt;p&gt;If you have package manager is it’s simply a tool that is used to install and remove software with the added bonus of managing dependencies. The two most popular package managers are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt&lt;/code&gt; usually found on debian based distributions and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum&lt;/code&gt; (Fedora 33 tells me this is now replaced with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnf&lt;/code&gt; so add another package manager onto the list).&lt;/p&gt;
 
@@ -30,11 +30,104 @@
 yum update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now you might be wondering, if it’s that simple why would I ever want a universal package manager? The&lt;/p&gt;
+&lt;p&gt;Now you might be wondering, if it’s that simple why would I ever want a universal package manager? Well there are a few reason. Packages can be out of date or even non existent. For example, don’t use the version of Docker in your distro’s default repository.&lt;/p&gt;
 
-&lt;p&gt;Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu ()&lt;/p&gt;
+&lt;p&gt;Snap was created by Canonical, the company which created and maintained one of the most popular Linux distributions, Ubuntu. Their motivation for creating this project was because there are so many flavours of Ubuntu that it is hard to manage unique pacakges for each distro.&lt;/p&gt;
 
-&lt;p&gt;A brief explanation of how packages are currently maintained may be of interest. Depending on the flavor of your distribution, you may be used to seeing packages with a .deb (Debian, Ubuntu etc;) or .rpm (RHEL, CentOS, Fedora, etc;)&lt;/p&gt;</content><author><name></name></author><category term="snap" /><category term="linux" /><category term="yaml" /><category term="canonical" /><summary type="html">If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!</summary></entry><entry><title type="html">Setting up Jekyll on Github pages</title><link href="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html" rel="alternate" type="text/html" title="Setting up Jekyll on Github pages" /><published>2021-01-28T17:00:04+00:00</published><updated>2021-01-28T17:00:04+00:00</updated><id>http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;To install things using snap it pretty simple. first install snap&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;snap
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then we can simply install&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;snap install vlc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I had some issues with snap. I imagine this is related to using a canonical tool on a non canonical distro. When I ran things with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;snap run vlc&lt;/code&gt; I got a strange font error. However, when I ran the same command using the debugger &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;snap run --gdb vlc&lt;/code&gt; it would run after continuing a few times. Weirdly, if I uninstalled it and reinstalled the font issue would reappear until I ran it once with the debugger.&lt;/p&gt;
+
+&lt;p&gt;So while I’m not ready to use it for my container images it’s worth keeping an eye on. Like most things on Linux there is more than one option. A popular alternative is flatpak. I haven’t tested this but it may be worth having a look&lt;/p&gt;</content><author><name></name></author><category term="snap" /><category term="linux" /><category term="yaml" /><category term="canonical" /><summary type="html">If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!</summary></entry><entry><title type="html">Setting up a Docker Swarm on your Local Network</title><link href="http://0.0.0.0:4000/docker/swarm/firewalld/2021/02/08/setting-up-a-docker-swarm-on-a-local-network.html" rel="alternate" type="text/html" title="Setting up a Docker Swarm on your Local Network" /><published>2021-02-08T12:00:04+00:00</published><updated>2021-02-08T12:00:04+00:00</updated><id>http://0.0.0.0:4000/docker/swarm/firewalld/2021/02/08/setting-up-a-docker-swarm-on-a-local-network</id><content type="html" xml:base="http://0.0.0.0:4000/docker/swarm/firewalld/2021/02/08/setting-up-a-docker-swarm-on-a-local-network.html">&lt;h2 id=&quot;setting-up-some-new-virtual-machines&quot;&gt;Setting up Some New Virtual Machines&lt;/h2&gt;
+
+&lt;p&gt;For my swarm I created a master node on my personal laptop along with two worker nodes running on two VMs hosted on my Desktop PC.&lt;/p&gt;
+
+&lt;p&gt;For this I used a minimal CentOS 7 image. I had this on on my PC so I used it.&lt;/p&gt;
+
+&lt;p&gt;My laptop is running Fedora Workstation 33.&lt;/p&gt;
+
+&lt;p&gt;If you don’t use CentOS you will likely not have the issues I had. On Fedora Workstation the required ports are opened by default.&lt;/p&gt;
+
+&lt;p&gt;When setting up your machines in Virtualbox you are going to want to set up a bridged connection. This will assign each of you VMs an IP as if they were connected to your local network. I had assigned my Desktop PC a preferred IP based on it’s MAC address and this will cause all VMs to be assigned the same IP. If you end up with an IP&lt;/p&gt;
+
+&lt;h2 id=&quot;add-docker-to-this-machine&quot;&gt;Add docker to this machine&lt;/h2&gt;
+
+&lt;p&gt;Installing Docker is actually very simple these days. Usually, you won’t want to use your package manager’s repo. To ensure you get the latest version check out the script at &lt;a href=&quot;http://get.docker.com&quot;&gt;get.docker.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Run it in your terminal with:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; get.docker.com&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;or as recommended in the script&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://get.docker.com &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; get-docker.sh
+sh get-docker.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;adding-machines-to-the-swarm&quot;&gt;Adding machines to the Swarm&lt;/h2&gt;
+
+&lt;p&gt;Execute the following command on your leader machine &lt;em&gt;node1&lt;/em&gt; to start the swarm.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker swarm init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will add this machine to the node. It will also print a worker join token to the screen. This command must then be run on the other machines on the network in order for them to join the swarm. I didn’t want to manually type this so I created a docker image to host this info.&lt;/p&gt;
+
+&lt;p&gt;I found the most efficient way to get nodes to join was to host the join key on a webserver on the first node. To do this we run a few linux commands on the initialized node:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker swarm join-token worker | &lt;span class=&quot;nb&quot;&gt;sed &lt;/span&gt;1d &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; index.html &lt;span class=&quot;c&quot;&gt;#use manager in place of worker if desired&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The sed in the above command just removes the first line from the output. You can then execute the following command to host the script:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run --rm -d --name token-share -p 80:80 -v $(pwd)/index.html:/usr/share/nginx/html/index.html nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;On the other nodes you can now execute:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$(curl -s *ip-address-of-docker-node*)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This method of key sharing probably doesn’t meet any organizational security standards but I’m fine with it on my local network.&lt;/p&gt;
+
+&lt;h1 id=&quot;cleaning-up-with-docker&quot;&gt;cleaning up with Docker&lt;/h1&gt;
+
+&lt;p&gt;Once we have all our nodes added we want to clean up the nginx container. All we need to do is stop it and it will be deleted as we started it with an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--rm&lt;/code&gt; argument. Just run:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker container stop token-share
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We then probably want to refresh the join key we run:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker swarm join-token &lt;span class=&quot;nt&quot;&gt;--rotate&lt;/span&gt; worker
+docker swarm join-token &lt;span class=&quot;nt&quot;&gt;--rotate&lt;/span&gt; manager
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This ensures that your key going forward is different than the one you just publicly shared. Finally confirm the correct number of nodes are in your cluster:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker node &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;configuring-your-firewall-for-a-swarm-node&quot;&gt;Configuring your Firewall for a Swarm Node&lt;/h2&gt;
+
+&lt;p&gt;If your virtual machines use an image with systemd (it probably does) you can run the following commands to make the required changes to firewalld.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;firewall-cmd &lt;span class=&quot;nt&quot;&gt;--list-all&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#you can see your active zone here&lt;/span&gt;
+firewall-cmd &lt;span class=&quot;nt&quot;&gt;--zone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;public &lt;span class=&quot;nt&quot;&gt;--permanent&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--add-port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1025-655365/tcp &lt;span class=&quot;nt&quot;&gt;-add-port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1025-655365/udp
+firewall-cmd &lt;span class=&quot;nt&quot;&gt;--reload&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#for changes to take effect&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Opening all the above ports is overkill and kind of eliminates the purpose of using a secure distribution like CentOS. You can find out the exact ports to open in Docker’s own &lt;a href=&quot;https://docs.docker.com/engine/swarm/swarm-tutorial/#open-protocols-and-ports-between-the-hosts&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Not having the correct ports open can lead to some unusual behavior. I was able to have my CentOS join the swarm but they couldn’t start containers.&lt;/p&gt;
+
+&lt;p&gt;Enjoy your Swarm!&lt;/p&gt;</content><author><name></name></author><category term="docker" /><category term="swarm" /><category term="firewalld" /><summary type="html">Setting up Some New Virtual Machines</summary></entry><entry><title type="html">Setting up Jekyll on Github pages</title><link href="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html" rel="alternate" type="text/html" title="Setting up Jekyll on Github pages" /><published>2021-01-28T17:00:04+00:00</published><updated>2021-01-28T17:00:04+00:00</updated><id>http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/docker/jekyll/2021/01/28/setting-up-a-blog-with-jekyll.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a blogging software that produces a static webpage. A static webpage is simply one that serves fixed html files. The webpage will never change unless the html files are edited. A dynamic webpage on the other hand can retrieve information from a database and inject the result into a html page before serving it. Think of your google search results. The page always looks the same but the content between the header and footer is unique. Jekyll gives you the dynamic features you need - I don’t have to add every new post I create to the main page - but every page is then built into a static html file.&lt;/p&gt;
 
