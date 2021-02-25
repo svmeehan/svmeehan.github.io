@@ -1,4 +1,4 @@
-I"W<h2 id="exam-selection">Exam Selection</h2>
+I"1<h2 id="exam-selection">Exam Selection</h2>
 
 <p>Last Summer, I began using the AWS ecosystem to host some personal projects. I fully intend to do a post about one of the Lambda projects I worked on last year but I want to rebuild it using the new lambda containers so I can do a comparison.</p>
 
@@ -14,11 +14,14 @@
 
 <p>There are then two professional level certs and six specialty certificates. I decided to skip the cloud practitioner exam and go for something more technical. While I was initially drawn to the administrator course based on my interests I opted instead for the Solution Architect exam. This course seemed to be the most fundamental with a focus on designing robust deployments and understanding of the most cost efficient solutions.</p>
 
-<p>I will be adding posts to the blog with a single post per technology (S3, EC2, etc). These notes may go beyond the scope of the exam, mainly some AWS CLI stuff I want to have at a convenient location for copy pasting. I will be updating this post with the links as i write them.</p>
+<p>I will be adding posts to the blog with a single post per technology (S3, EC2, etc). These notes may go beyond the scope of the exam, mainly some AWS CLI stuff I want to have at a convenient location for copy pasting. I will be updating this post with the links as I write them.</p>
 
 <h2 id="the-links">The Links</h2>
 
+<p>The exam guide can be found <a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf">here</a>. For the AWS Solutions Architect exam we want a good understanding of what constitutes an <a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html">“AWS Well-Architected Framework”</a>.</p>
+
 <ul>
+  <li><a href="http://localhost:80">Identity Access Management - IAM</a></li>
   <li><a href="http://localhost:80">placeholder S3</a></li>
   <li><a href="http://localhost:80">placeholder EC2</a></li>
   <li><a href="http://localhost:80">placeholder RDS</a></li>

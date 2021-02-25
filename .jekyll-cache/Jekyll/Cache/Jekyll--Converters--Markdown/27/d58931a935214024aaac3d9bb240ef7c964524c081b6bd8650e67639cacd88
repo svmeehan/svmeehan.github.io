@@ -1,0 +1,29 @@
+I"X<h2 id="what-is-iam">What is IAM?</h2>
+
+<p>Identity Access Management (IAM) is service where an administrator can create and mange users and control their access to the different services offered by AWS. It is also the place where administrators can manage access for external users. This may be only a passing concern for those with a personal account. The importance of understanding this feature should not be underestimated particularly for administrators within organisations. Find the IAM FAQ <a href="https://aws.amazon.com/iam/faqs/">here</a>.</p>
+
+<p>When an AWS account is set up there is one user, the root user, who is an administrator who has full control and access to every feature. One of the first things that AWS recommends doing is to set up a working account. AWS allows each account to be configured with Multi Factor Authentication (MFA) and I recommend using this. If this account get hacked it could be quite expensive, particularly if a user gets admin access and deletes your billing alarms.</p>
+
+<p>It may be helpful to think of the humble developer working within a larger organisation.</p>
+
+<p>In this post I will be trying to cover as much as possible</p>
+
+<h2 id="users">Users</h2>
+<p>People, employees etc</p>
+
+<h2 id="groups">Groups</h2>
+
+<p>A collection of users who inherit permissions</p>
+
+<h2 id="roles">Roles</h2>
+
+<p>Internal roles that can be assigned to AWS objects.</p>
+
+<h2 id="policies">Policies</h2>
+
+<p>JSON documents that define the permissions a user, group or role may have.</p>
+
+<h2 id="identity-providers">Identity Providers</h2>
+
+<h2 id="organisations">Organisations</h2>
+:ET
