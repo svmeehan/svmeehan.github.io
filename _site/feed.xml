@@ -1,31 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-02-25T14:16:37+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Seamus Meehan</title><subtitle>It's a process</subtitle><entry><title type="html">Identity Access Management (IAM) - Notes</title><link href="http://0.0.0.0:4000/aws/notes/solutions-architect/iam/security/2021/02/24/aws-iam.html" rel="alternate" type="text/html" title="Identity Access Management (IAM) - Notes" /><published>2021-02-24T12:00:04+00:00</published><updated>2021-02-24T12:00:04+00:00</updated><id>http://0.0.0.0:4000/aws/notes/solutions-architect/iam/security/2021/02/24/aws-iam</id><content type="html" xml:base="http://0.0.0.0:4000/aws/notes/solutions-architect/iam/security/2021/02/24/aws-iam.html">&lt;h2 id=&quot;what-is-iam&quot;&gt;What is IAM?&lt;/h2&gt;
-
-&lt;p&gt;Identity Access Management (IAM) is service where an administrator can create and mange users and control their access to the different services offered by AWS. It is also the place where administrators can manage access for external users. This may be only a passing concern for those with a personal account. The importance of understanding this feature should not be underestimated particularly for administrators within organisations. Find the IAM FAQ &lt;a href=&quot;https://aws.amazon.com/iam/faqs/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;When an AWS account is set up there is one user, the root user, who is an administrator who has full control and access to every feature. One of the first things that AWS recommends doing is to set up a working account. AWS allows each account to be configured with Multi Factor Authentication (MFA) and I recommend using this. If this account get hacked it could be quite expensive, particularly if a user gets admin access and deletes your billing alarms.&lt;/p&gt;
-
-&lt;p&gt;It may be helpful to think of the humble developer working within a larger organisation.&lt;/p&gt;
-
-&lt;p&gt;In this post I will be trying to cover as much as possible&lt;/p&gt;
-
-&lt;h2 id=&quot;users&quot;&gt;Users&lt;/h2&gt;
-&lt;p&gt;People, employees etc&lt;/p&gt;
-
-&lt;h2 id=&quot;groups&quot;&gt;Groups&lt;/h2&gt;
-
-&lt;p&gt;A collection of users who inherit permissions&lt;/p&gt;
-
-&lt;h2 id=&quot;roles&quot;&gt;Roles&lt;/h2&gt;
-
-&lt;p&gt;Internal roles that can be assigned to AWS objects.&lt;/p&gt;
-
-&lt;h2 id=&quot;policies&quot;&gt;Policies&lt;/h2&gt;
-
-&lt;p&gt;JSON documents that define the permissions a user, group or role may have.&lt;/p&gt;
-
-&lt;h2 id=&quot;identity-providers&quot;&gt;Identity Providers&lt;/h2&gt;
-
-&lt;h2 id=&quot;organisations&quot;&gt;Organisations&lt;/h2&gt;</content><author><name></name></author><category term="aws" /><category term="notes" /><category term="solutions-architect" /><category term="IAM" /><category term="security" /><summary type="html">What is IAM?</summary></entry><entry><title type="html">AWS Solutions Architect Posts</title><link href="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html" rel="alternate" type="text/html" title="AWS Solutions Architect Posts" /><published>2021-02-22T12:00:04+00:00</published><updated>2021-02-22T12:00:04+00:00</updated><id>http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts</id><content type="html" xml:base="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html">&lt;h2 id=&quot;exam-selection&quot;&gt;Exam Selection&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-03-30T11:56:07+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Seamus Meehan</title><subtitle>It's a process</subtitle><entry><title type="html">AWS Solutions Architect Posts</title><link href="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html" rel="alternate" type="text/html" title="AWS Solutions Architect Posts" /><published>2021-02-22T12:00:04+00:00</published><updated>2021-02-22T12:00:04+00:00</updated><id>http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts</id><content type="html" xml:base="http://0.0.0.0:4000/aws/notes/fluff/solutions-architect/2021/02/22/aws-posts.html">&lt;h2 id=&quot;exam-selection&quot;&gt;Exam Selection&lt;/h2&gt;
 
 &lt;p&gt;Last Summer, I began using the AWS ecosystem to host some personal projects. I fully intend to do a post about one of the Lambda projects I worked on last year but I want to rebuild it using the new lambda containers so I can do a comparison.&lt;/p&gt;
 
@@ -48,10 +21,7 @@
 &lt;p&gt;The exam guide can be found &lt;a href=&quot;https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf&quot;&gt;here&lt;/a&gt;. For the AWS Solutions Architect exam we want a good understanding of what constitutes an &lt;a href=&quot;https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html&quot;&gt;“AWS Well-Architected Framework”&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;Identity Access Management - IAM&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;placeholder S3&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;placeholder EC2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://localhost:80&quot;&gt;placeholder RDS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://placeholder.local&quot;&gt;Identity Access Management - IAM&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="aws" /><category term="notes" /><category term="fluff" /><category term="solutions-architect" /><summary type="html">Exam Selection</summary></entry><entry><title type="html">Snap - A Universal Package Manager for Linux</title><link href="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html" rel="alternate" type="text/html" title="Snap - A Universal Package Manager for Linux" /><published>2021-02-17T12:00:04+00:00</published><updated>2021-02-17T12:00:04+00:00</updated><id>http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager</id><content type="html" xml:base="http://0.0.0.0:4000/snap/linux/yaml/canonical/2021/02/17/snap-package-manager.html">&lt;p&gt;If you have used any kind of Linux you have probably some experience with a package manager. If you have used Linux for a while you will know there are more package managers than distributions. When they start naming package managers “Yet AnOther User Repository Tool” or yaourt (a now discontinued package manager for Arch) it gives the impression that this may be a problem!&lt;/p&gt;
 
 &lt;p&gt;If you have package manager is it’s simply a tool that is used to install and remove software with the added bonus of managing dependencies. The two most popular package managers are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;apt&lt;/code&gt; usually found on debian based distributions and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum&lt;/code&gt; (Fedora 33 tells me this is now replaced with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dnf&lt;/code&gt; so add another package manager onto the list).&lt;/p&gt;
